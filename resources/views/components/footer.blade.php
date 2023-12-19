@@ -37,6 +37,10 @@
 <script src="{{asset('assets/vendor/jqvmap/maps/continents/jquery.vmap.europe.js')}}"></script>
 <script src="{{asset('assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js')}}"></script>
 <script src="{{asset('assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js')}}"></script>
+<script src="{{asset('assets/vendor/select2/select2.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatables/media/js/jquery.dataTables.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatables-bs3/assets/js/datatables.js')}}"></script>
 
 <!-- Theme Base, Components and Settings -->
 <script src="{{asset('assets/javascripts/theme.js')}}"></script>
@@ -50,5 +54,8 @@
 
 <!-- Examples -->
 <script src="{{asset('assets/javascripts/dashboard/examples.dashboard.js')}}"></script>
+<script src="{{asset('assets/javascripts/tables/examples.datatables.default.js')}}"></script>
+<script src="{{asset('assets/javascripts/tables/examples.datatables.row.with.details.js')}}"></script>
+<script src="{{asset('assets/javascripts/tables/examples.datatables.tabletools.js')}}"></script>
 </body>
 </html>

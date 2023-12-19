@@ -44,12 +44,25 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create');
+        return view('create');
     }
 
     public function store(Request $request)
     {
-        // Validation and storing logic here
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'quantity' => 'required|integer|min:0',
+        ]);
+
+        DB::table('products')->insert([
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'quantity' => $request->input('quantity'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
         return redirect('/products')->with('success', 'Product added successfully!');
     }
 
@@ -66,6 +79,37 @@ class ProductController extends Controller
             ->whereYear('created_at', $date->year)
             ->whereMonth('created_at', $date->month)
             ->sum('total_amount');
+    }
+
+    public function sellForm()
+    {
+        $products = DB::table('products')->get();
+        return view('sellForm', ['products' => $products]);
+    }
+
+    public function sell(Request $request, $id)
+    {
+        $product = DB::table('products')->find($id);
+
+        $request->validate([
+            'quantity' => 'required|integer|min:0',
+        ]);
+
+        // Record the sale in the transactions table
+        DB::table('transactions')->insert([
+            'product_id' => $product->id,
+            'quantity_sold' => $request->input('quantity'),
+            'total_amount' => $request->input('quantity') * $product->price,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Update the product quantity
+        DB::table('products')
+            ->where('id', $product->id)
+            ->update(['quantity' => DB::raw('quantity - ' . $request->input('quantity'))]);
+
+        return redirect('/sell')->with('success', 'Product added successfully!');
     }
 
 }

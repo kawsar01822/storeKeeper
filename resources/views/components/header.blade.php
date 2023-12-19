@@ -27,6 +27,8 @@
 		<link rel="stylesheet" href="{{asset('assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/vendor/morris/morris.css')}}" />
+		<link rel="stylesheet" href="{{asset('assets/vendor/select2/select2.css')}}" />
+		<link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatables-bs3/assets/css/datatables.css')}}" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="{{asset('assets/stylesheets/theme.css')}}" />

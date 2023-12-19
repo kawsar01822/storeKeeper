@@ -30,7 +30,7 @@
             </li>
 
             <li class="nav-active">
-              <a href="{{url('/add')}}">
+              <a href="{{url('/create')}}">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 <span>Add Product</span>
               </a>

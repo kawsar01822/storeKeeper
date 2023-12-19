@@ -15,6 +15,6 @@ class TransactionController extends Controller
             ->orderBy('transactions.created_at', 'desc')
             ->get();
 
-        return view('transactions.index', ['transactions' => $transactions]);
+        return view('transactions', ['transactions' => $transactions]);
     }
 }
